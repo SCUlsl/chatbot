@@ -7,3 +7,5 @@
 # 下面是网站页面
 
 ![image](https://github.com/SCUlsl/chatbot/blob/main/chatbot%20website.png)
+
+网址是 http://lab124.xyz/  http://www.peihongliang.xyz/
