@@ -9,4 +9,5 @@
 ![image](https://github.com/SCUlsl/chatbot/blob/main/chatbot%20website.png)
 
 
-网址是：
+网址是：(1) http://www.peihongliang.xyz/  
+       (2) http://lab124.xyz/
