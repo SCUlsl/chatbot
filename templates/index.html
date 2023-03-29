@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>ChatGPT机器人</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">  
+    <style type="text/css">
+        body {
+            background-color: pink;
+        }
+
+        h1 {
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand text-center" href="#">哈哈哈哈，暂时就更到这，在下要去学后端了，啦啦啦啦啦~</a>
+    </nav>
+
+
+    </div>
+
+<div class="container mt-3">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="ID">通行证</label>
+                <input type="text" class="form-control" id="ID" placeholder="请输入你的通行证">
+                <label for="question">提问</label>
+                <input type="text" class="form-control" id="question" placeholder="请输入你的问题">
+            </div>
+            <button class="btn btn-primary" id="ask-btn">提问</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="answer">回答</label>
+                <textarea class="form-control" id="answer" rows="30" readonly></textarea>
+                <button class="btn btn-primary" id="clear">清除回答框</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        $('#clear').click(function () {
+            $('#answer').empty();
+        });
+    });
+    $(function () {
+        $('#ask-btn').click(function () {
+            var username1 = $('#ID').val();
+            var question1 = $('#question').val();
+            if (question1) {
+                var context1 = $('#answer').val(); // 取出上一次的回答作为上下文
+                userIP = '/' + username1;
+                console.log(userIP);
+                $.post(userIP, {question: question1, context: context1, username: username1}, function (data) {
+                    console.log('成功发送 POST 请求！');
+                    var answer = "\n我：" + question1 + "\n" + "机器人：" + data.answer;
+                    $('#answer').append(answer);
+                });
+            }
+        });
+    });
+</script>
+</body>
+</html>
